@@ -4,7 +4,7 @@ pygame.init()
 pygame.font.init()
 
 try:
-    huawenkaiti_font = pygame.font.Font(r"C:\Windows\Fonts\STKAITI.TTF", 36)
+    huawenkaiti_font = pygame.font.Font(r".\fonts\STKAITI.TTF", 36)
 except FileNotFoundError:
     print("Error: Font file not found. Please check the path.")
     huawenkaiti_font = pygame.font.Font(None, 36)  # 使用默认字体作为备选
