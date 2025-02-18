@@ -1,0 +1,91 @@
+# Python产生的临时文件
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.venv/
+venv/
+env/
+ENV/
+dist/
+build/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+wheels/
+*.egg-info/
+.installed.cfg
+*.whl
+MANIFEST
+
+# PyInstaller
+/dist
+/build
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+
+# Environments
+.env
+.venv
+
+# OS generated files #
+.DS_Store
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+*.tmproj/
+*.idea/
+*.ipr
+*.iws
+
+# Logs
+*.log
+logs/
+
+# Dependency Management
+poetry.lock
+Pipfile.lock
+
+# 编辑器备份文件，临时文件
+*~
+# 一些编辑器创建的临时文件
+.*.swp
+.*.swo
+._*
+*.bak
+*.tmp
+*.diff
+*.patch
+*.rej
+
+# 忽略所有 .vscode文件夹下的 settings.json 和 launch.json，除非明确需要追踪
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Others
+*.orig
+*.rej
+*~
+*.db
+*.sqlite
