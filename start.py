@@ -8,7 +8,7 @@ pygame.init()
 screen.initialize_screen()
 
 try:
-    background_image = pygame.image.load("images\startscreen.png")
+    background_image = pygame.image.load("images\\startscreen.png")
 except pygame.error as message:
     print("Cannot load image: ", message)
     raise SystemExit(message)
