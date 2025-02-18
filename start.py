@@ -3,9 +3,9 @@ import main
 from gui import colors, font, screen
 import sys
 
-pygame.init()
+pygame.init()  # 确保 Pygame 初始化
 
-screen.initialize_screen()
+screen.initialize_screen()  # 初始化屏幕
 
 try:
     background_image = pygame.image.load("images\\startscreen.png")
@@ -14,8 +14,8 @@ except pygame.error as message:
     raise SystemExit(message)
 
 background_rect = background_image.get_rect()
-SCREEN_WIDTH = background_rect.width
-SCREEN_HEIGHT = background_rect.height
+SCREEN_WIDTH = screen.WIDTH # 使用 gui.screen 中定义的宽度
+SCREEN_HEIGHT = screen.HEIGHT # 使用 gui.screen 中定义的高度
 pygame.display.set_caption("贪吃蛇-开始界面")
 
 button_width = 200
@@ -38,13 +38,14 @@ def start_screen():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+                pygame.quit() #在退出前正确关闭 Pygame
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if start_button_rect.collidepoint(event.pos):
                     return "start_game"
                 elif exit_button_rect.collidepoint(event.pos):
                     pygame.quit()
-                    break
+                    sys.exit()
 
         screen.screen.blit(background_image, background_rect)
 
@@ -71,6 +72,8 @@ if __name__ == '__main__':
             main_result = main.main_loop()
             if main_result == "quit":
                 break
+            elif main_result == "main_menu": #处理返回主菜单的情况
+                continue
         else:
             break
     

@@ -9,7 +9,6 @@ snake_obj = None
 food_obj = None
 
 def initialize_game():
-    """初始化游戏状态，创建新的 Snake 和 Food 对象."""
     global snake_obj, food_obj
     snake_obj = snake.Snake()
     food_obj = food.Food(screen.WIDTH, screen.HEIGHT, snake_obj.snake_list)
@@ -45,5 +44,5 @@ def main_loop():
         clock.tick(game_logic.SNAKE_SPEED)
 
     # 游戏结束，显示游戏结束画面
-    result = game_over.show_game_over_screen(screen.screen, snake_obj.length - 1)
+    result = game_over.show_game_over_screen(screen.screen, snake_obj.length - 1) # 传递 screen.screen
     return result

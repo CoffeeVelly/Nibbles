@@ -8,9 +8,18 @@ screen = None
 
 def initialize_screen():
   global screen
+  pygame.init()
   screen = pygame.display.set_mode((WIDTH, HEIGHT))
   pygame.display.set_caption("贪吃蛇")
+  screen.fill(colors.BLACK) # 初始化背景颜色
+  pygame.display.flip()
 
 
 def draw_background():
     screen.fill(colors.BLACK)
+
+def get_width():
+    return WIDTH
+
+def get_height():
+    return HEIGHT
