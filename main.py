@@ -1,8 +1,8 @@
 import pygame
 from game import game_logic, snake, food
-from gui import screen, text
+from gui import screen, text, ranking
 import game_over as game_over
-import sys
+from game import update_score
 
 # Snake 和 Food 对象 (全局变量)
 snake_obj = None
@@ -41,8 +41,9 @@ def main_loop():
         text.draw_score(screen.screen, snake_obj.length - 1)  # 显示得分
 
         pygame.display.update()
-        clock.tick(game_logic.SNAKE_SPEED)
+        clock.tick(30)
 
     # 游戏结束，显示游戏结束画面
+    ranking.input_player_name(snake_obj.length - 1)
     result = game_over.show_game_over_screen(screen.screen, snake_obj.length - 1) # 传递 screen.screen
     return result

@@ -1,8 +1,8 @@
 import pygame
 from gui import colors
 
-WIDTH = 854
-HEIGHT = 460
+WIDTH = 1200
+HEIGHT = 800
 
 screen = None 
 
@@ -11,7 +11,7 @@ def initialize_screen():
   pygame.init()
   screen = pygame.display.set_mode((WIDTH, HEIGHT))
   pygame.display.set_caption("贪吃蛇")
-  screen.fill(colors.BLACK) # 初始化背景颜色
+  screen.fill(colors.BLACK)
   pygame.display.flip()
 
 
