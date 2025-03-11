@@ -21,6 +21,14 @@ def main_loop():
 
     clock = pygame.time.Clock()
     game_over_flag = False
+    origin_image = pygame.image.load("images/nifu.png").convert_alpha()
+    background_image = pygame.transform.scale(origin_image, (screen.WIDTH, screen.HEIGHT))
+    mask_surface = pygame.Surface(background_image.get_size(), pygame.SRCALPHA)
+    mask_alpha = 128
+    mask_surface.fill((0, 0, 0, mask_alpha))
+    
+    
+    background_rect = background_image.get_rect()
 
     while not game_over_flag:
         # 处理事件
@@ -35,7 +43,9 @@ def main_loop():
             game_over_flag = True
 
         # 绘制游戏
-        screen.draw_background()
+        
+        screen.screen.blit(background_image, background_rect)
+        screen.screen.blit(mask_surface, background_rect)
         food_obj.draw(screen.screen)
         snake_obj.draw(screen.screen)
         text.draw_score(screen.screen, snake_obj.length - 1)  # 显示得分

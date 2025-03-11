@@ -19,7 +19,8 @@ def display_scores():
     scores = load_scores(file_path)
     top_scores = get_top_scores(scores)
 
-    background_image = pygame.image.load("images\\ranking_background.png")
+    background_image = pygame.image.load("images/ranking_background.png").convert()
+    background_image.set_colorkey((0, 0, 0))
     background_rect = background_image.get_rect()
 
     running = True
@@ -35,8 +36,10 @@ def display_scores():
 
         screen.screen.blit(background_image, background_rect) # 绘制背景
 
+
+
         # 绘制标题
-        title_text = font.huawenkaiti_font.render("排行榜", True, colors.BLACK)
+        title_text = font.huawenkaiti_font.render("排行榜", True, colors.PURPLE)
         title_rect = title_text.get_rect(center=(screen.WIDTH // 2, 50))
         screen.screen.blit(title_text, title_rect)
 
@@ -45,7 +48,7 @@ def display_scores():
         for i, score_data in enumerate(top_scores):
             name = score_data['name']
             score = score_data['score']
-            entry_text = font.huawenkaiti_font.render(f"{i+1}. {name}: {score}", True, colors.BLACK)
+            entry_text = font.huawenkaiti_font.render(f"{i+1}. {name}: {score}", True, colors.PURPLE)
             entry_rect = entry_text.get_rect(center=(screen.WIDTH // 2, y_offset))
             screen.screen.blit(entry_text, entry_rect)
             y_offset += 40
@@ -56,7 +59,8 @@ def display_scores():
 def input_player_name(score):
     player_name = ""
     inputting = True
-    background_image = pygame.image.load("images\\ranking_background.png")
+    background_image = pygame.image.load("images/ranking_background.png").convert()
+    background_image.set_colorkey((0, 0, 0))
     background_rect = background_image.get_rect()
 
     while inputting:
@@ -74,16 +78,16 @@ def input_player_name(score):
         screen.screen.blit(background_image, background_rect)
 
         # 绘制文本输入提示
-        prompt_text = font.huawenkaiti_font.render("请输入你的名字:", True, colors.BLACK)
+        prompt_text = font.huawenkaiti_font.render("请输入你的名字:", True, colors.PURPLE)
         prompt_rect = prompt_text.get_rect(center=(screen.WIDTH // 2, screen.HEIGHT // 2 - 40))
         screen.screen.blit(prompt_text, prompt_rect)
 
         # 绘制文本输入框
         input_box_rect = pygame.Rect(screen.WIDTH // 2 - 100, screen.HEIGHT // 2 - 10, 200, 40)
-        pygame.draw.rect(screen.screen, colors.WHITE, input_box_rect, 2)
+        pygame.draw.rect(screen.screen, colors.PURPLE, input_box_rect, 2)
 
         # 绘制输入的文本
-        name_text = font.huawenkaiti_font.render(player_name, True, colors.WHITE)
+        name_text = font.huawenkaiti_font.render(player_name, True, colors.PURPLE)
         name_rect = name_text.get_rect(center=input_box_rect.center)
         screen.screen.blit(name_text, name_rect)
 

@@ -14,10 +14,6 @@ def initialize_screen():
   screen.fill(colors.BLACK)
   pygame.display.flip()
 
-
-def draw_background():
-    screen.fill(colors.BLACK)
-
 def get_width():
     return WIDTH
 
